@@ -2,7 +2,7 @@ import Customer from "@/models/Customer";
 import connectDB from "@/utils/connectDB";
 import { NextResponse } from "next/server";
 
-export const GET = async ({ params }) => {
+export const GET = async (request, { params }) => {
   const { slug } = params;
   try {
     await connectDB();
