@@ -1,7 +1,14 @@
-const HomePage = ({ customers }) => {
-  console.log(customers);
+import Card from "@/modules/Card";
+import { v4 as uuidv4 } from "uuid";
 
-  return <div>HomePage</div>;
+const HomePage = ({ customers }) => {
+  return (
+    <div>
+      {customers.map((customer) => (
+        <Card key={uuidv4()} customer={customer} />
+      ))}
+    </div>
+  );
 };
 
 export default HomePage;

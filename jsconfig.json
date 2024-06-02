@@ -9,7 +9,7 @@
       "@/models/*": ["src/models/*"],
       "@/providers/*": ["src/providers/*"],
       "@/elements/*": ["src/components/elements/*"],
-      "@/modules/*": ["src/components/moduels/*"],
+      "@/modules/*": ["src/components/modules/*"],
       "@/layout/*": ["src/components/layout/*"],
       "@/templates/*": ["src/components/templates/*"]
     }
