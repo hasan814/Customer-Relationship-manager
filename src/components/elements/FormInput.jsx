@@ -7,7 +7,7 @@ const FormInput = ({ name, label, type, value, onChange }) => {
         id={name}
         name={name}
         value={value}
-        onChange={onchange}
+        onChange={onChange}
       />
     </div>
   );
