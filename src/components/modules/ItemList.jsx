@@ -1,0 +1,57 @@
+import FormInput from "@/elements/FormInput";
+import { v4 as uuidv4 } from "uuid";
+
+const ItemList = ({ form, setForm }) => {
+  // =========== Form ==========
+  const { products } = form;
+
+  // =========== Function ==========
+  const addHandler = () => {
+    setForm({
+      ...form,
+      products: [...products, { name: "", price: "", qty: "" }],
+    });
+    console.log(products);
+  };
+
+  const changeHandler = () => {};
+  const deleteHandler = () => {};
+
+  // =========== Rendering ==========
+  return (
+    <div className="item-list">
+      <p>Purchased Products</p>
+      {products.map((product, index) => (
+        <div className="form-input__list" key={index}>
+          <FormInput
+            name="name"
+            label="Product Name"
+            type="text"
+            value={product.name}
+            onChange={changeHandler}
+          />
+          <div>
+            <FormInput
+              name="price"
+              label="Product Price"
+              type="text"
+              value={product.price}
+              onChange={changeHandler}
+            />
+            <FormInput
+              name="qty"
+              label="Product Qty"
+              type="number"
+              value={product.qty}
+              onChange={changeHandler}
+            />
+          </div>
+          <button onClick={deleteHandler}>Remove</button>
+        </div>
+      ))}
+      <button onClick={addHandler}>Add Item</button>
+    </div>
+  );
+};
+
+export default ItemList;

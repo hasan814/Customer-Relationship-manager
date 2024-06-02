@@ -21,7 +21,7 @@
 body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  background-color: rgb(49, 40, 40);
+  background-color: rgb(128, 82, 82);
 }
 
 .header {
@@ -32,10 +32,6 @@ body {
   margin: 20px 0 40px;
 }
 
-.main {
-  min-height: 85vh;
-}
-
 .footer {
   background-color: #262836;
   text-align: center;
@@ -44,10 +40,9 @@ body {
   border-radius: 10px;
 }
 
-.footer a {
-  color: #57aac8;
+.footer h2 {
+  font-size: 1rem;
 }
-
 .footer span {
   text-transform: uppercase;
   color: #8af1aa;
