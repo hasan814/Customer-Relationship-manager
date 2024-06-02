@@ -2,16 +2,16 @@ import Customer from "@/models/Customer";
 import connectDB from "@/utils/connectDB";
 import { NextResponse } from "next/server";
 
-export const DELETE = async ({ params }) => {
+export const GET = async ({ params }) => {
   const { slug } = params;
   try {
     await connectDB();
-    await Customer.deleteOne({ slug });
-    return NextResponse.json("Post Deleted");
+    const customer = await Customer.findOne({ slug });
+    return NextResponse.json(customer);
   } catch (error) {
     console.log(error);
     return NextResponse.json(
-      { error: "Failed to Delete Data" },
+      { error: "Failed to Fetch Data" },
       { status: 500 }
     );
   }
