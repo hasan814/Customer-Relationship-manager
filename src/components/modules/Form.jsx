@@ -60,7 +60,9 @@ const Form = ({ form, setForm }) => {
         value={form.date}
         onChange={changeHandler}
       />
-      <ItemList form={form} setForm={setForm} />
+      {Array.isArray(form.products) && (
+        <ItemList form={form} setForm={setForm} />
+      )}
     </div>
   );
 };

@@ -20,10 +20,11 @@ export const POST = async (req) => {
 
     // Create a new customer
     const customer = await Customer.create(data);
+    const customerObject = customer.toObject();
 
     // Send success response
     return NextResponse.json(
-      { status: "success", message: "Data created", data: customer },
+      { status: "success", message: "Data created", data: customerObject },
       { status: 201 }
     );
   } catch (error) {

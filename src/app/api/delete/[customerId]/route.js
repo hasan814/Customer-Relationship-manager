@@ -2,12 +2,12 @@ import Customer from "@/models/Customer";
 import connectDB from "@/utils/connectDB";
 import { NextResponse } from "next/server";
 
-export const DELETE = async ({ params }) => {
-  const { slug } = params;
+export const DELETE = async (request, { params }) => {
+  const { customerId } = params;
   try {
     await connectDB();
-    await Customer.deleteOne({ slug });
-    return NextResponse.json("Post Deleted");
+    await Customer.findByIdAndDelete(customerId);
+    return NextResponse.json({ message: "Post Deleted" });
   } catch (error) {
     console.log(error);
     return NextResponse.json(

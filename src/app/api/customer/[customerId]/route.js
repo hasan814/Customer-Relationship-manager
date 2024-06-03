@@ -6,7 +6,7 @@ export const GET = async (request, { params }) => {
   const { slug } = params;
   try {
     await connectDB();
-    const customer = await Customer.findOne({ slug });
+    const customer = await Customer.findOne({ slug }).lean();
     return NextResponse.json(customer);
   } catch (error) {
     console.log(error);

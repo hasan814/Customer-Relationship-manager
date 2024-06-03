@@ -13,7 +13,7 @@ const Card = ({ customer }) => {
       method: "DELETE",
     });
     const data = await response.json();
-    if (data === "Post Deleted") router.refresh();
+    if (data.message === "Post Deleted") router.refresh();
   };
 
   // =========== Rendering =============

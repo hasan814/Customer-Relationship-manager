@@ -1,17 +1,25 @@
-import CustomerEditPage from "@/templates/CustomerEditPage";
+"use client";
+
+import { useEffect, useState } from "react";
 import { getUserById } from "@/utils/Fetch";
+import CustomerEditPage from "@/templates/CustomerEditPage";
 
-export const generateMetadata = async ({ params }) => {
+const Details = ({ params }) => {
   const { customerId } = params;
-  const customer = await getUserById(customerId);
-  return { title: customer.lastName, description: customer.products };
-};
 
-const Details = async ({ params }) => {
-  const { customerId } = params;
-  const customer = await getUserById(customerId);
+  // ============= State ============
+  const [data, setData] = useState(null);
 
-  return <CustomerEditPage data={customer} id={customerId} />;
+  // ============= Effect ============
+  useEffect(() => {
+    const fetchData = async () => {
+      const userData = await getUserById(customerId);
+      setData(userData);
+    };
+    fetchData();
+  }, [customerId]);
+
+  return <CustomerEditPage data={data} id={customerId} />;
 };
 
 export default Details;
