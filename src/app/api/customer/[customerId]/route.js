@@ -3,10 +3,10 @@ import connectDB from "@/utils/connectDB";
 import { NextResponse } from "next/server";
 
 export const GET = async (request, { params }) => {
-  const { slug } = params;
+  const { customerId } = params;
   try {
     await connectDB();
-    const customer = await Customer.findOne({ slug }).lean();
+    const customer = await Customer.findOne({ _id: customerId });
     return NextResponse.json(customer);
   } catch (error) {
     console.log(error);
